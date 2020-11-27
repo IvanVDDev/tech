@@ -1,7 +1,9 @@
 <template>
   <div class="w-screen px-10 py-10 bg-purple-900">
     <header class="container mx-auto flex flex-row">
-        <div class="w-1/4">LOGO</div>
+        <div class="w-1/4 logo">
+          <SVGLogo/>
+        </div>
         <!-- ... -->
         <nav class="w-3/4"> 
           <ul  class="flex flex-row justify-end">
@@ -16,11 +18,14 @@
 </template>
 
 <script>
+import SVGLogo from '@/assets/svg/flame.svg';
 export default {
-
+components: {
+    SVGLogo,
+  }
 }
 </script>
 
-<style>
+<style lang='scss'>
 
 </style>
