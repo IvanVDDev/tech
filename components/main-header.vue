@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen px-10 py-10">
+  <div class="w-screen px-10 py-10 bg-purple-900">
     <header class="container mx-auto flex flex-row">
         <div class="w-1/4">LOGO</div>
         <!-- ... -->
