@@ -11,14 +11,18 @@
       <div class="w-1/2 hero-image"><img src="~/assets/images/hero.png" alt=""></div>
     </div>
   </div>
+  <div class="divider">
+    <BottomDivider/>
+  </div>
   </div>
 </template>
 
 <script>
 import MainHeader from '../components/main-header.vue'
+import BottomDivider from '@/assets/svg/slant-up-bottom.svg'
 
 export default {
-  components: { MainHeader },}
+  components: { MainHeader, BottomDivider },}
 </script>
 
 <style lang="scss">
@@ -32,6 +36,7 @@ html {
 
 .hero-section {
   padding-top: 80px;
+  padding-bottom: 200px;
   overflow: hidden;
   min-height: 100vh;
   background: rgb(58,62,180);
@@ -64,6 +69,15 @@ html {
       background-color:  rgba(253,29,229,1);
       color: white;
     }
+  }
+}
+
+.divider {
+  margin-top: -200px;
+  
+  svg {
+    min-height: 200px;
+    height: 100%;
   }
 }
 </style>
