@@ -1,12 +1,12 @@
 <template>
   <div>
   <main-header/>
-  <div class="s px-10 py-100 hero-section hero-section">
+  <div class="px-10 py-100 hero-section">
     <div class="container mx-auto flex flex-row justify-center items-center">
       <div class="w-1/2 hero-text">
         <h1>Some text that should leave an impression</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, quae harum. Nisi aliquam quasi illum dignissimos vel, totam autem eos modi consectetur necessitatibus perferendis, expedita earum iusto reiciendis fugiat aperiam.</p>
-      <button>Go for it!</button>
+      <button>Explore!</button>
       </div>
       <div class="w-1/2 hero-image"><img src="~/assets/images/hero.png" alt=""></div>
     </div>
@@ -14,15 +14,40 @@
   <div class="divider">
     <BottomDivider/>
   </div>
+  <div class="feature-section px-10 py-10">
+    <div class="container ml-8">
+      <h2 class="mb-4">Things we do best</h2>
+      <p class="mb-16">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, reprehenderit?</p>
+    </div>
+    <div class="container mx-auto flex flex-row justify-center items-center">
+      <feature-card v-for="(feature, index) in features" :key="index" :featureInfo="feature"/>
+    </div>
+  <div class="bottom-divider">
+    <BottomDivider/>
   </div>
+  </div>
+</div>
 </template>
 
 <script>
-import MainHeader from '../components/main-header.vue'
+import MainHeader from '../components/main-header'
 import BottomDivider from '@/assets/svg/slant-up-bottom.svg'
+import FeatureCard from '../components/partials/featureCard'
+import FeatureData from '../data/features'
 
 export default {
-  components: { MainHeader, BottomDivider },}
+  components: { 
+    MainHeader, 
+    BottomDivider, 
+    FeatureCard
+  },
+
+  data() {
+    return {
+      features: FeatureData
+    }
+  }
+}
 </script>
 
 <style lang="scss">
@@ -56,7 +81,7 @@ html {
   }
 
   button {
-     background-color: white;
+    background-color: white;
     padding: 20px 40px;
     border-radius: 15px;
     font-size: 20px;
@@ -78,6 +103,55 @@ html {
   svg {
     min-height: 200px;
     height: 100%;
+    fill: transparent;
+    z-index: 3;
+  }
+}
+
+.feature-section {
+  position: relative;
+  padding-bottom: 200px;
+
+  h2 {
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(58,62,180);
+  }
+
+  p {
+    color: black;
+  }
+
+  .feature-card {
+    img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: rgb(58,62,180);
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .bottom-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    min-width: 200px;
+    transform: rotate(180deg);
+    background: rgba(58,62,180,0.1);
+    z-index: -1;
+    
   }
 }
 </style>
