@@ -16,7 +16,7 @@
   </div>
   <div class="feature-section px-10 py-10">
     <div class="container ml-8">
-      <h2 class="mb-4">Things we do best</h2>
+      <h2 class="mb-4">Services we do best</h2>
       <p class="mb-16">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, reprehenderit?</p>
     </div>
     <div class="container mx-auto flex flex-row justify-center items-center">
@@ -26,12 +26,39 @@
     <BottomDivider/>
   </div>
   </div>
+
+  <div class="benefits-section px-10 py-20">
+    <h2 class="mb-24">Benefits we provide</h2>
+    <div class="container mx-auto flex flex-row justify-center items-center">
+      <div class="w-1/4 ml-6 mr-3 benefits-card bg-white px-10 py-16 rounded-xl shadow-2xl">
+        <Wheel class="mb-6"/>
+        <h3 class="mb-4">Security</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, earum!</p>
+      </div>
+      <div class="w-1/4 mx-3 benefits-card bg-white px-10 py-16 rounded-xl shadow-2xl">
+        <Wheel class="mb-6"/>
+        <h3 class="mb-4">Security</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, earum!</p>
+      </div>
+      <div class="w-1/4 mx-3 benefits-card bg-white px-10 py-16 rounded-xl shadow-2xl">
+        <Wheel class="mb-6"/>
+        <h3 class="mb-4">Security</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, earum!</p>
+      </div>
+      <div class="w-1/4 mr-6 ml-3 benefits-card bg-white px-10 py-16 rounded-xl shadow-2xl">
+        <Wheel class="mb-6"/>
+        <h3 class="mb-4">Security</h3>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt, earum!</p>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
 <script>
 import MainHeader from '../components/main-header'
 import BottomDivider from '@/assets/svg/slant-up-bottom.svg'
+import Wheel from '@/assets/svg/wheel.svg'
 import FeatureCard from '../components/partials/featureCard'
 import FeatureData from '../data/features'
 
@@ -39,7 +66,8 @@ export default {
   components: { 
     MainHeader, 
     BottomDivider, 
-    FeatureCard
+    FeatureCard,
+    Wheel
   },
 
   data() {
@@ -154,4 +182,40 @@ html {
     
   }
 }
+
+ .benefits-section {
+    background: linear-gradient(149deg, rgba(253,29,229,1) 0%, rgba(58,62,180,1) 94%);
+
+  h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+  }
+  
+  .benefits-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    svg {
+      width: 120px;
+      height: 120px;
+      padding: 20px;
+      border-radius: 50%;
+      background: rgba(58,62,180,0.1);
+    }
+
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+      color: rgb(58,62,180);
+    }
+
+    p {
+      text-align: center;
+    }
+
+    }
+  }
 </style>
