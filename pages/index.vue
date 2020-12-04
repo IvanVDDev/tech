@@ -52,6 +52,60 @@
       </div>
     </div>
   </div>
+  <div class="container slider-container mx-auto py-20">
+    <h2 class="mb-2">They have spoken</h2>
+    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, aliquam!</p>
+   <VueSlickCarousel :settings="carouselSettings">
+      <div class="slide-item shadow-2xl">
+        <div class="testemonial flex ">
+          <div class="image">
+            <img src="https://placeimg.com/640/640/people?t=1607017330993" alt="">
+          </div>
+          <div class="info py-20 px-10">
+            <p class="mb-10">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam eum officia voluptatem recusandae totam officiis ab cupiditate! Illum, obcaecati dolor. Dignissimos sit quis totam assumenda aperiam, unde aspernatur quaerat ut."</p>
+            <h4 class="mb-1">John Doe</h4>
+            <b>CEO Fiction DevOps</b>
+          </div>
+        </div>
+      </div>
+      <div class="slide-item shadow-2xl">
+         <div class="testemonial flex ">
+          <div class="image">
+            <img src="https://placeimg.com/640/640/people?t=1607017330993" alt="">
+          </div>
+          <div class="info py-20 px-10">
+            <p class="mb-10">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam eum officia voluptatem recusandae totam officiis ab cupiditate! Illum, obcaecati dolor. Dignissimos sit quis totam assumenda aperiam, unde aspernatur quaerat ut."</p>
+            <h4 class="mb-1">John Doe</h4>
+            <b>CEO Fiction DevOps</b>
+          </div>
+        </div>
+      </div>
+      <div class="slide-item shadow-2xl">
+         <div class="testemonial flex ">
+          <div class="image">
+            <img src="https://placeimg.com/640/640/people?t=1607017330993" alt="">
+          </div>
+          <div class="info py-20 px-10">
+            <p class="mb-10">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam eum officia voluptatem recusandae totam officiis ab cupiditate! Illum, obcaecati dolor. Dignissimos sit quis totam assumenda aperiam, unde aspernatur quaerat ut."</p>
+            <h4 class="mb-1">John Doe</h4>
+            <b>CEO Fiction DevOps</b>
+          </div>
+        </div>
+      </div>
+      <div class="slide-item shadow-2xl">
+         <div class="testemonial flex ">
+          <div class="image">
+            <img src="https://placeimg.com/640/640/people?t=1607017330993" alt="">
+          </div>
+          <div class="info py-20 px-10">
+            <p class="mb-10">"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam eum officia voluptatem recusandae totam officiis ab cupiditate! Illum, obcaecati dolor. Dignissimos sit quis totam assumenda aperiam, unde aspernatur quaerat ut."</p>
+            <h4 class="mb-1">John Doe</h4>
+            <b>CEO Fiction DevOps</b>
+          </div>
+        </div>
+      </div>
+    </VueSlickCarousel>
+  </div>
 </div>
 </template>
 
@@ -61,18 +115,32 @@ import BottomDivider from '@/assets/svg/slant-up-bottom.svg'
 import Wheel from '@/assets/svg/wheel.svg'
 import FeatureCard from '../components/partials/featureCard'
 import FeatureData from '../data/features'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 
 export default {
   components: { 
     MainHeader, 
     BottomDivider, 
     FeatureCard,
-    Wheel
+    Wheel,
+    VueSlickCarousel
   },
 
   data() {
     return {
-      features: FeatureData
+      features: FeatureData,
+      carouselSettings: {
+        "dots": true,
+        "dotsClass": "slick-dots custom-dot-class",
+        "edgeFriction": 0.35,
+        "infinite": false,
+        "speed": 500,
+        "slidesToShow": 1,
+        "slidesToScroll": 1
+      }
     }
   }
 }
@@ -214,8 +282,88 @@ html {
 
     p {
       text-align: center;
+     }
+    }
+  }
+
+  .slider-container {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 7.5%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, white 20%, rgba(255,255,255,0.5) 70%,  transparent 100%);
+      z-index: 1;
     }
 
+     &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 7.5%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to left, white 20%, rgba(255,255,255,0.5) 70%,  transparent 100%);
+    }
+
+    h2 {
+      font-size: 50px;
+      font-weight: 700;
+      color: rgb(58,62,180);
+      text-align: center;
+    }
+
+    .slide-item {
+      height: 300px;
+      margin: 100px 10%;
+      width: 80% !important;
+      border-radius: 20px;
+      overflow: hidden;
+      outline: none;
+
+      &::before, &::after {
+        content: none;
+        border-color: transparent;
+      }
+
+      .testemonial {
+        height: 100%;
+        
+        .image {
+          width: 300px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 200;
+            height: 200px;
+            border-radius: 50%;
+          }
+        }
+
+        .info {
+          width: calc(100% - 300px);
+          height: 100%;
+
+          p {
+            font-style: italic;
+          }
+
+          h4 {
+            color: rgb(58,62,180);
+            font-weight: 700;
+            font-size: 19px;
+          }
+        }
+      }
     }
   }
 </style>
